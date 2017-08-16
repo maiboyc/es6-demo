@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //var 全局有效 let 所在的代码块内有效
+        //Example:（输出结果：a: b:1）
+        function test() {
+            let a = 1;
+            var b = 1;
+        }
+        console.log("a:" + a);
+        console.log("b:" + b);
+
+        //Example:（输出结果10）
+//        var a = [];
+//        for(var i = 0; i < 10 ; i++){
+//            a[i]=function(){
+//                console.log(i);
+//            };
+//        }
+//        a[6]();
+
+        //Example2:(输出结果6)
+//        var a = [];
+//        for (let i = 0; i < 10; i++) {
+//            a[i] = function () {
+//                console.log(i);
+//            };
+//        }
+//        a[6]();
+
+        //Example3:（输出结果为 abc 3次）
+//        for (let i = 0; i < 3; i++) {
+//            let i = 'abc';
+//            console.log(i);
+//        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
