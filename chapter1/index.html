@@ -5,13 +5,13 @@
     <title>Title</title>
     <script type="text/javascript">
         //var 全局有效 let 所在的代码块内有效
-        //Example:（输出结果：a: b:1）
-        function test() {
-            let a = 1;
-            var b = 1;
-        }
-        console.log("a:" + a);
-        console.log("b:" + b);
+        //Example:（输出结果：a:a is not defined b:1）
+//        {
+//            let a = 1;
+//            var b = 1;
+//        }
+//        console.log("a:" + a);
+//        console.log("b:" + b);
 
         //Example:（输出结果10）
 //        var a = [];
@@ -37,6 +37,62 @@
 //            console.log(i);
 //        }
 
+        //Example4:(var 的情况输出undefined let 的情况报错ReferenceError)
+//        console.log(foo);
+//        var foo = 2;
+//        console.log(bar);
+//        let bar = 2;
+
+        //Example5:(暂时性死 在代码块内，使用let命令声明变量之前，该变量都是不可用的)
+//        var tmp = 123;
+//        if (tmp) {
+//            tmp = 'abc'; // ReferenceError
+//            let tmp;
+//            console.log(tmp); // undefined
+//            tmp = 123;
+//            console.log(tmp); // 123
+//        }
+
+        //Example6(在没有let之前，typeof运算符是百分之百安全的，永远不会报错,变量一定要在声明之后使用，否则就报错)
+//        typeof x; // ReferenceError
+//        let x;
+
+        // 不报错
+//        var x = x;
+
+        // 报错
+//        let x = x;
+        //Example7(相同作用于内，不允许重复声明)
+        // 不报错
+//        function test1 () {
+//            var a = 10;
+//            var a = 1;
+//            console.log(a);
+//        }
+        //报错
+//        function test1 () {
+//            var a = 10;
+//            var a = 1;
+//            console.log(a);
+//        }
+//        test1();
+
+        // 报错
+//        function test2() {
+//            let a = 10;
+//            let a = 1;
+//        }
+//        test2();
+        //报错
+        function test3(arg) {
+            let arg; // 报错
+        }
+        // 不报错
+        function test4(arg) {
+            {
+                let arg;
+            }
+        }
     </script>
 </head>
 <body>
