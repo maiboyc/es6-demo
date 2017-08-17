@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块级作用域</title>
+    <script type="text/javascript">
+        //Example1:(内层变量可能会覆盖外层变量 输出 undefined)
+//        var tmp = new Date();
+//        function f() {
+//            console.log(tmp);
+//            if (true) {//不管这里是true还是false
+//                var tmp = 'hello world';
+//            }
+//        }
+//        f();
+
+        //Example2:(用来计数的循环变量泄露为全局变量,使用let就不会)
+//        for (var i = 0; i < 5; i++) {
+//            console.log("循环："+i);
+//        }
+//        console.log(i);
+
+        //Example3:(let为javascript带来块级作用域,n显示为作用域内值)
+//        function fun() {
+//            let n = 5;
+//            if (true) {
+//                let n = 10;
+//                console.log(n);
+//            }
+//            console.log(n);
+//        }
+//        fun();
+
+        //Example4:(块级作用域可任意嵌套,外层作用域无法读取内层作用域的变量,内层作用域可以读取外层变量)
+//        {
+//            let a = 1;
+//            console.log(b);
+//            {
+//                console.log(a);
+//                let b = 2;
+//            }
+//        }
+        //Example5:(内层作用域可以定义外层作用域的同名变量)
+//        {
+//            let a = 'a1';
+//            console.log(a);
+//            {
+//                let a = 'a2';
+//                console.log(a);
+//                let b = 'b1';
+//                console.log(b);
+//                {
+//                    let b = 'b2';
+//                    console.log(b);
+//                    let c =3;
+//                    console.log(c);
+//                }
+//            }
+//        }
+        //Example6：（场景，需要立即执行一个函数，三种不同的写法）
+//        function f(){
+//            var tmp = 'Hello World';
+//            console.log(tmp)
+//        }
+//        f(); //传统写法
+
+//        (function () {
+//            var tmp = 'Hello World';
+//            console.log(tmp);
+//        }());//IIFE（立即执行函数）写法
+
+//        {
+//            let tmp = 'Hello World';
+//            console.log(tmp);
+//        }//块级作用域写法
+
+          //Example7(do表达式 块级作用域返回值)
+//        function f(){
+//            return 1;
+//        }
+//        {
+//         let t = f();
+//         t = t * t + 1;
+//         console.log(t);
+//        }
+//        let x = do {
+//            let t = f();
+//            t * t + 1;
+//        };
+//        console.log(x);
+
+    </script>
+</head>
+<body>
+</body>
+</html>
