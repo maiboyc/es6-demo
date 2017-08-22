@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式扩展</title>
+    <script type="text/javascript">
+        //Example1：（RegExp构造）
+        //在 ES5 中，RegExp构造函数的参数有两种情况。
+        //第一种情况是，参数是字符串，这时第二个参数表示正则表达式的修饰符（flag）。
+//        var regex1 = new RegExp('xyz', 'i');
+//        console.log('regex1: '+regex1);
+        // 等价于
+//        var regex2 = /xyz/i;
+//        console.log('regex2: '+regex2);
+        //第二种情况是，参数是一个正则表示式，这时会返回一个原有正则表达式的拷贝。
+//        var regex3 = new RegExp(/xyz/i);
+//        console.log('regex3: '+regex3);
+        // 等价于
+//        var regex4 = /xyz/i;
+//        console.log('regex4: '+regex4);
+        //但是，ES5 不允许此时使用第二个参数添加修饰符，否则会报错。
+//        var regex5 = new RegExp(/xyz/, 'i');
+//        console.log('regex5: '+regex5);
+        //ES6 改变了这种行为。如果RegExp构造函数第一个参数是一个正则对象，那么可以使用第二个参数指定修饰符。
+        // 而且，返回的正则表达式会忽略原有的正则表达式的修饰符，只使用新指定的修饰符。
+//        var regex6 = new RegExp(/abc/ig, 'i');//Regexp.flags返回修饰符
+//        console.log('regex6: '+regex6);
+        // "i"
+        //上面代码中，原有正则对象的修饰符是ig，它会被第二个参数i覆盖。
+
+        //Example2（字符串正则表达式方法match()、replace()、search()、split()）
+//        var regex = new RegExp('abd')
+//        let str1 = 'abdfsgwerqagasgsda';
+//        console.log(str1.match(regex));
+//        console.log(str1.replace(regex,'123'));
+//        console.log(str1.search(regex))
+//        console.log(str1.split(regex))
+
+        //Example3: (正则表达式‘u’修饰符,用来正确处理大于\uFFFF的 Unicode 字符,正确处理四个字节的 UTF-16 编码)
+//        console.log(/^\uD83D/u.test('\uD83D\uDC2A'));
+//        console.log(/^\uD83D/.test('\uD83D\uDC2A'));
+
+
+    </script>
+</head>
+<body>
+    <h1>正则表达式扩展</h1>
+</body>
+</html>
