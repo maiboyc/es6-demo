@@ -5,59 +5,59 @@
     <title>字符串扩展</title>
     <script type="text/javascript">
         //Example1:(ES6改进，只要将码点放入大括号，就能正确解读该字符。)
-//        let tmp = "\u0061";
-//        let tmp1 = "\u{61}";
-//        console.log("tmp:" + tmp);
-//        console.log("tmp1:" + tmp1);
-//        console.log("\u{20BB7}");
-//        console.log("\u{41}\u{42}\u{43}");
-//        let hello = 123;
-//        console.log('hell\u{6F}');
-//        console.log('\u{1F680}' === '\uD83D\uDE80');
-//        console.log('\z' === 'z');
-//        console.log('\172' === 'z');
-//        console.log('\x7A' === 'z');
-//        console.log('\u007A' === 'z');
-//        console.log('\u{7A}' === 'z');
+        let tmp = "\u0061";
+        let tmp1 = "\u{61}";
+        console.log("tmp:" + tmp);
+        console.log("tmp1:" + tmp1);
+        console.log("\u{20BB7}");
+        console.log("\u{41}\u{42}\u{43}");
+        let hello = 123;
+        console.log('hell\u{6F}');
+        console.log('\u{1F680}' === '\uD83D\uDE80');
+        console.log('\z' === 'z');
+        console.log('\172' === 'z');
+        console.log('\x7A' === 'z');
+        console.log('\u007A' === 'z');
+        console.log('\u{7A}' === 'z');
 
         //Example2:(codePointAt方法应用)
-//        let s = "𠮷a";
-//        for (let ch of s) {//32位的UTF-16字符
-//            console.log(ch.codePointAt(0).toString(16));
-//        }
-//        function is32Bit(s) {//测试一个字符由两个字节还是由四个字节组成
-//            return s.codePointAt(0) > 0xFFFF;
-//        }
-//        console.log(is32Bit(s))
+        let s = "𠮷a";
+        for (let ch of s) {//32位的UTF-16字符
+            console.log(ch.codePointAt(0).toString(16));
+        }
+        function is32Bit(s) {//测试一个字符由两个字节还是由四个字节组成
+            return s.codePointAt(0) > 0xFFFF;
+        }
+        console.log(is32Bit(s))
 
         //Example3:(String.fromCodePoint可以识别大于0xFFFF的字符，弥补fromCharCode)
-//        console.log(String.fromCharCode(0x20BB7));//不能正确显示
-//        console.log(String.fromCodePoint(0x20BB7));//𠮷
-//        console.log( String.fromCodePoint(0x78));//x
-//        console.log( String.fromCodePoint(0x1f680));//🚀
-//        console.log( String.fromCodePoint(0x79));//y
-//        console.log( String.fromCodePoint(0x78, 0x1f680, 0x79));//合并多个字符串 'x🚀y'
+        console.log(String.fromCharCode(0x20BB7));//不能正确显示
+        console.log(String.fromCodePoint(0x20BB7));//𠮷
+        console.log( String.fromCodePoint(0x78));//x
+        console.log( String.fromCodePoint(0x1f680));//🚀
+        console.log( String.fromCodePoint(0x79));//y
+        console.log( String.fromCodePoint(0x78, 0x1f680, 0x79));//合并多个字符串 'x🚀y'
 
         //Example4:(ES6为字符串添加了遍历器接口)
-//        for (let codePoint of 'foo') {
-//            console.log(codePoint)
-//        }
+        for (let codePoint of 'foo') {
+            console.log(codePoint)
+        }
         //传统for不能识别大于0xFFFF的码
-//        var text = String.fromCodePoint(0x20BB7);
-//        for (let i = 0; i < text.length; i++) {
-//            console.log(text[i]);
-//        }
+        var text = String.fromCodePoint(0x20BB7);
+        for (let i = 0; i < text.length; i++) {
+            console.log(text[i]);
+        }
         //fro...of可以识别
-//        for (let i of text) {
-//            console.log(i);
-//        }
+        for (let i of text) {
+            console.log(i);
+        }
 
         //Example5:(ES5 对字符串对象提供charAt方法，返回字符串给定位置的字符。该方法不能识别码点大于0xFFFF的字符)
-//        console.log('abc'.charAt(0)); // "a"
-//        console.log('𠮷'.charAt(0)); // "\uD842"
-//        //at方法，可以识别 Unicode 编号大于0xFFFF的字符
-//        console.log('abc'.at(0)); // "a"
-//        console.log('𠮷'.at(0)); //  "𠮷"
+        console.log('abc'.charAt(0)); // "a"
+        console.log('𠮷'.charAt(0)); // "\uD842"
+        //at方法，可以识别 Unicode 编号大于0xFFFF的字符
+        console.log('abc'.at(0)); // "a"
+        console.log('𠮷'.at(0)); //  "𠮷"
 
         //Example6(模板字符串)
         // 普通字符串
@@ -76,6 +76,9 @@
     </script>
 </head>
 <body>
+    <h1>字符串扩展</h1>
+    <code>
 
+    </code>
 </body>
 </html>
